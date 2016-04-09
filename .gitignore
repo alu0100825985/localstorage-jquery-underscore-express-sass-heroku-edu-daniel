@@ -1,0 +1,2 @@
+*.txt     		# Ficheros de texto
+node_modules/   # Directorio node_modules
