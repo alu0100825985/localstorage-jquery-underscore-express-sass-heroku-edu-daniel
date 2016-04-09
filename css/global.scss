@@ -1,0 +1,220 @@
+/*VARIABLES*/
+
+$color-maroon: #800000;
+$color-blue: #258dc8;
+$color-black: #222;
+
+@mixin position($float, $top: null, $right: null, $bottom: null, $left: null) { /* Mixin para establecer la posición de los elementos.*/
+  	float: $float;
+  	top: $top;
+  	right: $right;
+  	bottom: $bottom;
+  	left: $left;
+}
+
+@mixin text-shadow($shadow, $color) { /* Mixin para la implementación del text-shadow.*/
+	text-shadow: $shadow -$shadow $shadow $color, $shadow -$shadow $shadow $color, -$shadow $shadow $shadow $color, $shadow $shadow $shadow $color;
+}
+
+@mixin measures($width: null, $height: null) { /* Mixin para las medidas.*/
+	width: $width;
+	height: $height;
+}
+
+@mixin centerer { /* Mixin para centrar elementos.*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+html {
+	font-size: large; 
+	font-family: Arial;
+}
+
+h1 { 
+	font-weight: bold;
+  	color: white;
+  	word-spacing: 0em;
+  	letter-spacing: 0.05em;
+  	@include text-shadow(1.8px, black);
+	text-align: center;
+	font-size: xx-large; 
+	font-family: fontpage;
+}
+
+tr {
+	th { 
+		vertical-align: center; 
+		text-align: right; 
+		padding: 1%;
+		border: solid $color-black 0.5px;
+		background: $color-blue; /* Old browsers */
+		background: -moz-linear-gradient(top,  $color-blue 0%, $color-blue 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  $color-blue 0%,$color-blue 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  $color-blue 0%,$color-blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-blue', endColorstr='$color-blue',GradientType=0 ); /* IE6-9 */
+	}  
+
+	td { 
+		vertical-align: top; 
+		text-align: center; 
+	} 
+
+	.error { 
+		background-color: red; 
+	}
+
+	:nth-child(odd) { 
+		text-align: center;
+		color: white;
+	}
+
+	:nth-child(even) { 
+		background-color: white; 
+	}	
+}  
+
+#finaltable:hover td { 
+	background-color: $color-blue; 
+} 
+
+input { 
+	text-align: right;  
+	border: none;       
+} 
+
+textarea { 
+    overflow-y: scroll; 
+    resize: none; 
+}
+
+table { 
+	border: solid 1px; 
+	border-radius: 0.2em;
+	border-color: $color-black;
+	background-color: $color-black; 
+	margin-top: 1%;
+	margin-left: 15%;
+
+	.center { 
+		margin-left: auto; 
+		margin-right: auto; 
+	}
+}
+
+.csvtable { 
+	border: solid 3px; 
+	border-radius: 0.2em;
+	border-color: $color-black;
+	background-color: $color-maroon; 
+	margin-top: 1%;
+	margin-left: 15%;
+}
+
+#result { 
+	border-color: black; 
+}
+
+button {
+	@include measures(18%, 10%);
+	background: $color-blue; /* Old browsers */
+	background: -moz-linear-gradient(top,  $color-blue 0%, $color-blue 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  $color-blue 0%,$color-blue 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  $color-blue 0%,$color-blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-blue', endColorstr='$color-blue',GradientType=0 ); /* IE6-9 */
+	color: white;
+	text-align: center;
+	float: right;
+	margin-right: 16%;
+	margin-top: -6%;
+	font-size: large;
+	font-weight: bold;
+	border: outset $color-black 2px;
+	border-radius: 0.4em;
+}
+
+.area-output {
+	@include measures(80%, 50%);
+	background-color: white;
+	position: center;
+	margin-left: 9%;
+	border-radius: 0.3em;
+	border: solid $color-black 3px;
+	text-align: center;
+}
+
+body {
+	background: rgba(212,228,239,1);
+	background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
+	background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -o-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -ms-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
+
+	.title {
+		@include measures(100%, 10%);
+		background-color: $color-maroon;
+		border-radius: 0.3em;
+		padding-bottom: 1%;
+		border: solid $color-black 0.5px;
+	}
+
+	.instructions {
+		@include measures(100.1%, 4%);
+		text-align: center;
+		background-color: $color-black;
+		border-bottom-left-radius: 0.3em;
+		border-bottom-right-radius: 0.3em;
+		color: white;
+		font-weight: bold;
+		border-top: solid $color-blue 4px;
+		padding-top: 0.5%;
+	}
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    @include measures(100%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $color-black;
+    border-top: solid $color-maroon 7px;
+
+	.edu {
+	    float: right;
+	    margin-right: 0.9%;
+	}
+
+	.dani {
+	    float: right;
+	    margin-right: 0.4%;
+	}
+
+	.gh {
+	    float: right;
+	    margin-right: 0.4%;
+	}
+
+	.cpl {
+	    float: right;
+	    margin-right: 0.4%;
+	}
+
+	a {
+	    color: #FFF;
+	    text-decoration: none;
+	}
+}
+
+@font-face {
+    font-family: fontpage;
+    src: url(fonts/font-web.ttf);
+}
+
+
