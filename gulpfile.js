@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	clean = require('gulp-clean'),
   uglify = require('gulp-uglify'),
   cleancss = require('gulp-clean-css');
+  ghPages = require('gulp-gh-pages');
 
 //-----> CONFIGURACIÓN DE LAS TAREAS
 gulp.task('minify-js', function() {
@@ -29,6 +30,11 @@ gulp.task('minify-html', function() {
 gulp.task('clean', function () {
 	return gulp.src('minified/', {read: false})
 		.pipe(clean());
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./minified/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('default', ['minify-js', 'minify-css', 'minify-html'], function() { // Tarea por defecto. Ejecutamos todas las pruebas minify.
