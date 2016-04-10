@@ -15,14 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'js/main.js',
         'js/csv.js',
         'test/csv_tests.js',
         'vendor/chai.js',
         'vendor/mocha.css',
         'vendor/mocha.js',
-        'vendor/mocha-blanket.js',
-        'vendor/blanket.js',
     ],
 
 
@@ -52,7 +49,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'test.html': ['html2js']
+        'test/test.html': ['html2js']
     },
 
 

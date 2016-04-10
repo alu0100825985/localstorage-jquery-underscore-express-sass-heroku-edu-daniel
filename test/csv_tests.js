@@ -1,18 +1,6 @@
 var expect = chai.expect
 
 describe("PRUEBAS CSV", function () {
-  var sandbox;
-
-  beforeEach(function() {
-    sandbox = sinon.sandbox.create();
-    sandbox.stub(window.console, "log");
-    sandbox.stub(window.console, "error");
-  });
-
-  afterEach(function() {
-    sandbox.restore();
-  });
-
   describe("Pruebas para la función calculate()", function() {
     it("Entrada con elementos entrecomillados", function() {
       var input = '"Esto", "son", "elementos", "entrecomillados"';
