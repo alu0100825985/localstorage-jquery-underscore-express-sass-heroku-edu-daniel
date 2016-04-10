@@ -22,5 +22,15 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[2]).to.equal("elementos");
       expect(fun_cal[0].value[3]).to.equal("entrecomillados");
     });
+
+    it ("Cadena con elementos no entrecomillados", function() {
+      var input = 'Esto, son, elementos, no, entrecomillados'
+      var fun_cal = calculate(input);
+      expect(fun_cal[0].value[0]).to.equal("Esto");
+      expect(fun_cal[0].value[1]).to.equal("son");
+      expect(fun_cal[0].value[2]).to.equal("elementos");
+      expect(fun_cal[0].value[3]).to.equal("no");
+      expect(fun_cal[0].value[4]).to.equal("entrecomillados");
+    });
   });
 });
