@@ -58,5 +58,13 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[2]).to.equal("2");
       expect(fun_cal[0].value[3]).to.equal("3");
     });
+
+    it("Entrada como una coma en uno de los elementos", function() {
+      var input = '"Hay", "una,", "coma"';
+      var fun_cal = calculate(input);
+      expect(fun_cal[0].value[0]).to.equal("Hay");
+      expect(fun_cal[0].value[1]).to.equal("una,");
+      expect(fun_cal[0].value[2]).to.equal("coma");
+    });
   });
 });
