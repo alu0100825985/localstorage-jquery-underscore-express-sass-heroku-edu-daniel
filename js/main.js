@@ -1,15 +1,1 @@
-main = function() {
-  var original = document.getElementById("original").value;
-  if (window.localStorage) localStorage.original = original;
-  var r = calculate(original);
-  var template = fillTable.innerHTML;
-  finaltable.innerHTML = _.template(template, {items: r});
-};
-
-$(document).ready(function () {
-  // If the browser supports localStorage and we have some stored data
-  if (window.localStorage && localStorage.original) {
-    original.value = localStorage.original;
-  }
-  $("button").click(main);
-});
+main=function(){var a=document.getElementById("original").value;window.localStorage&&(localStorage.original=a);var l=calculate(a),i=fillTable.innerHTML;finaltable.innerHTML=_.template(i,{items:l})},$(document).ready(function(){window.localStorage&&localStorage.original&&(original.value=localStorage.original),$("button").click(main)});
