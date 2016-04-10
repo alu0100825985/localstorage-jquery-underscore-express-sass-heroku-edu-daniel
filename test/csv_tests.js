@@ -72,7 +72,7 @@ describe("PRUEBAS CSV", function () {
       var fun_cal = calculate(input);
       expect(fun_cal[0].value[0]).to.equal("Hay");
       expect(fun_cal[0].value[1]).to.equal("un ");
-      expect(fun_cal[0].value[2]).to.equal("espa");
+      expect(fun_cal[0].value[2]).to.equal("espacio");
     });
   });
 });
