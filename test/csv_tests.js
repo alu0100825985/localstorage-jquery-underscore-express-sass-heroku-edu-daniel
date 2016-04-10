@@ -40,5 +40,14 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[1]).to.equal("vacío");
       expect(fun_cal[0].value[2]).to.equal("");
     });
+
+    it ("Entrada con números entrecomillados", function() {
+      var input = '"0", "1", "2", "3"';
+      var fun_cal = calculate(input);
+      expect(fun_cal[0].value[0]).to.equal("0");
+      expect(fun_cal[0].value[1]).to.equal("1");
+      expect(fun_cal[0].value[2]).to.equal("2");
+      expect(fun_cal[0].value[3]).to.equal("3");
+    });
   });
 });
