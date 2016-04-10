@@ -66,5 +66,13 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[1]).to.equal("una,");
       expect(fun_cal[0].value[2]).to.equal("coma");
     });
+
+    it("Entrada con un espacio en uno de los elementos", function() {
+      var input = '"Hay", "un ", "espacio"';
+      var fun_cal = calculate(input);
+      expect(fun_cal[0].value[0]).to.equal("Hay");
+      expect(fun_cal[0].value[1]).to.equal("un ");
+      expect(fun_cal[0].value[2]).to.equal("espa");
+    });
   });
 });
