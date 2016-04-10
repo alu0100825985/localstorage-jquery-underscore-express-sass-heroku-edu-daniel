@@ -14,7 +14,7 @@ describe("PRUEBAS CSV", function () {
   });
 
   describe("Pruebas para la función calculate()", function() {
-    it("Cadena con elementos entrecomillados", function() {
+    it("Entrada con elementos entrecomillados", function() {
       var input = '"Esto", "son", "elementos", "entrecomillados"';
       var fun_cal = calculate(input);
       expect(fun_cal[0].value[0]).to.equal("Esto");
@@ -23,7 +23,7 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[3]).to.equal("entrecomillados");
     });
 
-    it ("Cadena con elementos no entrecomillados", function() {
+    it ("Entrada con elementos no entrecomillados", function() {
       var input = 'Esto, son, elementos, no, entrecomillados'
       var fun_cal = calculate(input);
       expect(fun_cal[0].value[0]).to.equal("Esto");
@@ -31,6 +31,14 @@ describe("PRUEBAS CSV", function () {
       expect(fun_cal[0].value[2]).to.equal("elementos");
       expect(fun_cal[0].value[3]).to.equal("no");
       expect(fun_cal[0].value[4]).to.equal("entrecomillados");
+    });
+
+    it ("Entrada con un elemento vacío", function() {
+      var input = '"Elemento", "vacío", ""'
+      var fun_cal = calculate(input);
+      expect(fun_cal[0].value[0]).to.equal("Elemento");
+      expect(fun_cal[0].value[1]).to.equal("vacío");
+      expect(fun_cal[0].value[2]).to.equal("");
     });
   });
 });
